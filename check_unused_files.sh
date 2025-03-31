@@ -16,12 +16,12 @@ if [ ! -d "$TARGET_DIR" ]; then
 fi
 
 # 查找 `._` 文件和 `.DS_Store` 文件
-FILES=$(find "$TARGET_DIR" -type f \( -name "._*" -o -name ".DS_Store" \))
+FILES=$(find "$TARGET_DIR" -type f \( -name "._*" -o -name ".DS_Store" -o -name "Thumbs.db" \))
 
 # 判断是否找到匹配的文件
 if [ -z "$FILES" ]; then
     echo "没有找到匹配的文件"
 else
     echo "以下是 '$TARGET_DIR' 中的无用文件："
-    echo "$FILES"
+    echo "$FILES" | tr ' ' '\n'  # 每行显示一个文件
 fi
