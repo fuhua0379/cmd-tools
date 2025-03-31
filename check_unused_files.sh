@@ -23,5 +23,5 @@ if [ -z "$FILES" ]; then
     echo "没有找到匹配的文件"
 else
     echo "以下是 '$TARGET_DIR' 中的无用文件："
-    echo "$FILES" | tr ' ' '\n'  # 每行显示一个文件
+    echo "$FILES" | tr '\0' '\n'  # 每行显示一个文件
 fi
