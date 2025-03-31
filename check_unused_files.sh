@@ -16,7 +16,7 @@ if [ ! -d "$TARGET_DIR" ]; then
 fi
 
 # 查找 `._` 文件和 `.DS_Store` 文件
-FILES=$(find "$TARGET_DIR" -type f \( -name "._*" -o -name ".DS_Store" -o -name "Thumbs.db" \))
+FILES=$(find "$TARGET_DIR" -type f \( -name "._*" -o -name ".DS_Store" -o -name "Thumbs.db" \) -print0)
 
 # 判断是否找到匹配的文件
 if [ -z "$FILES" ]; then
